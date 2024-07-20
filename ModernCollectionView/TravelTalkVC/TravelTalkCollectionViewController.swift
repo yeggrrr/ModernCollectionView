@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class TravelTalkCollectionViewController: UIViewController {
     // MARK: UI
@@ -16,7 +17,24 @@ class TravelTalkCollectionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        configure()
     }
     
     // MARK: Functions
+    func configure() {
+        // view
+        view.backgroundColor = .systemBackground
+        
+        // navigation
+        navigationItem.title = "TRAVEL TALK"
+        
+        // searchController
+        let searchController = UISearchController(searchResultsController: nil)
+        searchController.searchBar.placeholder = "친구 이름을 검색해보세요"
+        searchController.hidesNavigationBarDuringPresentation = false
+        searchController.searchBar.tintColor = .label
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
+        navigationController?.isToolbarHidden = true
+    }
 }
