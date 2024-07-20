@@ -16,7 +16,7 @@ struct Setting: Hashable, Identifiable {
 
 class SettingCollectionViewController: UIViewController {
     // MARK: Enum
-    enum Section {
+    enum Section: CaseIterable {
         case entire
         case personal
         case etc
@@ -43,36 +43,70 @@ class SettingCollectionViewController: UIViewController {
         Setting(title: "고객센터/도움말")
     ]
     
+    var dataSource: UICollectionViewDiffableDataSource<Section, Setting>!
+    
     // MARK: View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        configure()
+        configureDataSource()
+        updateSnapShot()
     }
     
     func configure() {
         // view
         view.backgroundColor = .white
         
+        // navigation
+        navigationItem.title = "설정"
+        
         // addSubviews
         view.addSubview(collecionView)
         
         // layout
         collecionView.snp.makeConstraints {
-            $0.edges.equalTo(view.safeAreaLayoutGuide)
+            $0.edges.equalToSuperview()
         }
     }
     
     // MARK: Functions
     func collecionviewLayout() -> UICollectionViewLayout {
         var configuration = UICollectionLayoutListConfiguration(appearance: .insetGrouped)
-        configuration.backgroundColor = .systemGray
+        configuration.backgroundColor = .systemBackground
         configuration.showsSeparators = true
         
         let layout = UICollectionViewCompositionalLayout.list(using: configuration)
         return layout
     }
     
-    // MARK: Actions
+    func configureDataSource() {
+        var registration: UICollectionView.CellRegistration<UICollectionViewListCell, Setting>!
+        registration = UICollectionView.CellRegistration { cell, indexPath, itemIdentifier in
+            var content = UIListContentConfiguration.valueCell()
+            content.text = itemIdentifier.title
+            content.textProperties.font = .systemFont(ofSize: 17, weight: .regular)
+            content.textProperties.color = .label
+            cell.contentConfiguration = content
+            
+            var bgconfig = UIBackgroundConfiguration.listPlainCell()
+            bgconfig.backgroundColor = .systemBackground
+            cell.backgroundConfiguration = bgconfig
+        }
+        
+        dataSource = UICollectionViewDiffableDataSource(collectionView: collecionView, cellProvider: { collectionView, indexPath, itemIdentifier in
+            let cell = collectionView.dequeueConfiguredReusableCell(using: registration, for: indexPath, item: itemIdentifier)
+            return cell
+        })
+    }
+    
+    func updateSnapShot() {
+        var snapShot = NSDiffableDataSourceSnapshot<Section, Setting>()
+        snapShot.appendSections(Section.allCases)
+        snapShot.appendItems(entireList, toSection: Section.entire)
+        snapShot.appendItems(personalList, toSection: Section.personal)
+        snapShot.appendItems(etcList, toSection: Section.etc)
+        dataSource.apply(snapShot)
+    }
 }
 
