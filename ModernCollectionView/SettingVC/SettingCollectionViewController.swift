@@ -89,9 +89,9 @@ class SettingCollectionViewController: UIViewController {
             content.textProperties.color = .label
             cell.contentConfiguration = content
             
-            var bgconfig = UIBackgroundConfiguration.listPlainCell()
-            bgconfig.backgroundColor = .systemBackground
-            cell.backgroundConfiguration = bgconfig
+            var bgConfig = UIBackgroundConfiguration.listPlainCell()
+            bgConfig.backgroundColor = .systemBackground
+            cell.backgroundConfiguration = bgConfig
         }
         
         dataSource = UICollectionViewDiffableDataSource(collectionView: collecionView, cellProvider: { collectionView, indexPath, itemIdentifier in
