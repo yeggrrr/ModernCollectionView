@@ -10,6 +10,7 @@ import SnapKit
 
 class TravelTalkCollectionViewController: UIViewController {
     // MARK: UI
+    lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout())
     
     // MARK: Properties
     
@@ -36,5 +37,22 @@ class TravelTalkCollectionViewController: UIViewController {
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
         navigationController?.isToolbarHidden = true
+        
+        // collecionView
+        view.addSubview(collectionView)
+        collectionView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
     }
+    
+    func collectionViewLayout() -> UICollectionViewLayout {
+        var configuration = UICollectionLayoutListConfiguration(appearance: .plain)
+        configuration.backgroundColor = .white
+        configuration.showsSeparators = true
+        
+        let layout = UICollectionViewCompositionalLayout.list(using: configuration)
+        return layout
+    }
+    
+    
 }
