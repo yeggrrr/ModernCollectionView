@@ -14,6 +14,7 @@
 		68C0A7352C4A3476004B812F /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 68C0A7342C4A3476004B812F /* Base */; };
 		68C0A73D2C4A3525004B812F /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 68C0A73C2C4A3525004B812F /* .gitignore */; };
 		68C0A74C2C4B96E5004B812F /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 68C0A74B2C4B96E5004B812F /* SnapKit */; };
+		68C0A7552C4BA186004B812F /* TravelTalkCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C0A7542C4BA186004B812F /* TravelTalkCollectionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		68C0A7342C4A3476004B812F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		68C0A7362C4A3476004B812F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		68C0A73C2C4A3525004B812F /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		68C0A7542C4BA186004B812F /* TravelTalkCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelTalkCollectionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,12 +63,29 @@
 			children = (
 				68C0A7282C4A3475004B812F /* AppDelegate.swift */,
 				68C0A72A2C4A3475004B812F /* SceneDelegate.swift */,
-				68C0A72C2C4A3475004B812F /* SettingCollectionViewController.swift */,
 				68C0A7312C4A3476004B812F /* Assets.xcassets */,
 				68C0A7332C4A3476004B812F /* LaunchScreen.storyboard */,
+				68C0A7522C4BA149004B812F /* SettingVC */,
+				68C0A7532C4BA15F004B812F /* TravelTalkVC */,
 				68C0A7362C4A3476004B812F /* Info.plist */,
 			);
 			path = ModernCollectionView;
+			sourceTree = "<group>";
+		};
+		68C0A7522C4BA149004B812F /* SettingVC */ = {
+			isa = PBXGroup;
+			children = (
+				68C0A72C2C4A3475004B812F /* SettingCollectionViewController.swift */,
+			);
+			path = SettingVC;
+			sourceTree = "<group>";
+		};
+		68C0A7532C4BA15F004B812F /* TravelTalkVC */ = {
+			isa = PBXGroup;
+			children = (
+				68C0A7542C4BA186004B812F /* TravelTalkCollectionViewController.swift */,
+			);
+			path = TravelTalkVC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -148,6 +167,7 @@
 			files = (
 				68C0A72D2C4A3475004B812F /* SettingCollectionViewController.swift in Sources */,
 				68C0A7292C4A3475004B812F /* AppDelegate.swift in Sources */,
+				68C0A7552C4BA186004B812F /* TravelTalkCollectionViewController.swift in Sources */,
 				68C0A72B2C4A3475004B812F /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
