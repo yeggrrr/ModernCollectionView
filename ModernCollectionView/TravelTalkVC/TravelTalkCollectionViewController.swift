@@ -91,15 +91,15 @@ class TravelTalkCollectionViewController: UIViewController {
             content.secondaryTextProperties.color = .lightGray
             
             content.image = UIImage(named: itemIdentifier.profileImage)
-            content.imageProperties.reservedLayoutSize = CGSize(width: 40, height: 40)
+            content.imageProperties.reservedLayoutSize = CGSize(width: 60, height: 60)
             content.imageProperties.maximumSize = CGSize(width: 50, height: 50)
             content.imageProperties.cornerRadius = 25
-            content.imageToTextPadding = 20
-            
-            cell.contentConfiguration = content
+            content.imageToTextPadding = 10
             
             var bgConfig = UIBackgroundConfiguration.listPlainCell()
             bgConfig.backgroundColor = .systemBackground
+            
+            cell.contentConfiguration = content
             cell.backgroundConfiguration = bgConfig
         }
         
